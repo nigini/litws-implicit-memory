@@ -109,14 +109,10 @@
 
             if (properties.useLoadingEffect) {
                 showLoadingIcon();
+                window.setTimeout(hideNextButton, properties.loadingTime);
             }
-            window.setTimeout(function () {
-                if (properties.hideOnComplete) {
-                    hideNextButton();
-                }
-                hideLoadingIcon();
-                properties.fn(validatedResponse);
-            }, ((properties.useLoadingEffect) ? properties.loadingTime : 0));
+
+            properties.fn(validatedResponse);
         },
 
         /**
