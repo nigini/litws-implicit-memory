@@ -1,5 +1,5 @@
 <h2 class="h3 bolded-blue" data-i18n="litw-comment-title"></h2>
-<span class="text-left" data-i18n="litw-comment-subtitle"></span>
+<span class="text-center" data-i18n="litw-comment-subtitle"></span>
 
 <div id="commentsForm" style="text-align: left"></div>
 <script type="text/javascript">
@@ -25,12 +25,12 @@
                         "type": "string",
                         "required": false
                     },
-                    "comment-shouldexclude": {
+                    "comment-didcheat": {
                         "title": $.i18n('litw-comment-q31'),
                         "enum": ['no', 'yes'],
                         "required":false
                     },
-                    "comment-whyexclude": {
+                    "comment-cheat": {
                         "title": $.i18n('litw-comment-q32'),
                         "type": "string",
                         "required":false
@@ -47,26 +47,20 @@
                         "optionLabels": [$.i18n('litw-demographics-no'),
                             $.i18n('litw-demographics-yes')],
                         "sort": false,
-                        "noneLabel": "--",
-                        "removeDefaultNone": false,
-                        "showMessages": false,
-                        "default": "--"
+                        "removeDefaultNone": true
                     },
                     "comment-issue": {
                         "type": "textarea",
                         "hidden": true
                     },
-                    "comment-shouldexclude": {
+                    "comment-didcheat": {
                         "type": 'select',
                         "optionLabels": [$.i18n('litw-demographics-no'),
                             $.i18n('litw-demographics-yes')],
                         "sort": false,
-                        "noneLabel": "--",
-                        "removeDefaultNone": false,
-                        "showMessages": false,
-                        "default": "--"
+                        "removeDefaultNone": true
                     },
-                    "comment-whyexclude": {
+                    "comment-cheat": {
                         "type": "textarea",
                         "hidden": true
                     },
@@ -80,9 +74,9 @@
                     this.refresh();
                 });
 
-                let shouldexclude = control.childrenByPropertyId["comment-shouldexclude"];
-                let whyexclude = control.childrenByPropertyId["comment-whyexclude"];
-                whyexclude.subscribe(shouldexclude, function(val) {
+                let didcheat = control.childrenByPropertyId["comment-didcheat"];
+                let cheat = control.childrenByPropertyId["comment-cheat"];
+                cheat.subscribe(didcheat, function(val) {
                     this.options.hidden = val !== 'yes';
                     this.refresh();
                 });
