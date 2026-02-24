@@ -1,0 +1,78 @@
+{
+  "@metadata": {
+    "authors": ["LITW Team"],
+    "locale": "es",
+    "message-documentation": "qqq"
+  },
+
+  "litw-template-title": "Test de memoria implícita",
+  "litw-study-title": "Test de memoria implícita",
+  "litw-study-subtitle": "¿Alguna vez has tenido un 'presentimiento' sobre algo? Tu memoria implícita puede haber tenido algo que ver.",
+  "litw-study-description-p1": "¡Pon a prueba tu memoria implícita en este experimento!",
+  "litw-study-description-p2": "Descubre cómo tu capacidad para aprender patrones se compara con la de personas de todo el mundo.",
+  "litw-study-intro-button": "¡Empezar ahora!",
+
+  "study-im-instruct1-p1": "Te mostraremos tarjetas con formas, como éstas:",
+  "study-im-instruct2-p1": "Cada tarjeta representa una probabilidad determinada de lluvia. Algunas cartas representan una probabilidad alta de lluvia, mientras que otras representan una probabilidad baja. Estas probabilidades no varían durante el transcurso del experimento.",
+  "study-im-instruct2-p2": "Cuando las cartas se muestran combinadas, la probabilidad general de lluvia varía, en base a las probabilidades de cada tarjeta.",
+  "study-im-instruct2-p3": "<b>En cada prueba, tu tarea consiste en decidir si lloverá o no, en base a las cartas que te mostremos.</b> Lo harás haciendo clic sobre el icono de una nube si crees que lloverá, o sobre el icono de un sol si piensas que no lloverá.",
+  "study-im-instruct2-p4": "También puedes utilizar las flechas derecha e izquierda del teclado para seleccionar los iconos meteorológicos.",
+  "study-im-instruct3-p1": "Al principio no sabrás qué combinaciones de cartas indican lluvia y cuáles indican sol, así que tendrás que adivinarlo.",
+  "study-im-instruct3-p2": "¡Pero no te preocupes! Inmediatamente te diremos si has acertado o no. Verás una marca de verificación verde si has acertado, y una X roja si no has acertado.",
+  "study-im-instruct3-p3": "Con el tiempo irás mejorando.",
+  "study-im-instruct3-p4": "<b>¡Intentémoslo!</b>",
+  "study-im-instruct4-p1": "¡Buen trabajo! Si no aciertas algunas, no te preocupes. Presta atención a los símbolos que aparecen en cada prueba y hazlo lo mejor que puedas.",
+  "study-im-instruct4-p2": "Completarás varias pruebas más con un conjunto diferente de símbolos. Al final del experimento podrás ver tus resultados y compararlos con los de los demás.",
+  "study-im-instruct4-p3": "¿Estás listo? ¡Haz clic en la flecha para comenzar!",
+
+  "study-im-trial-question": "En base a la(s) tarjeta(s) anterior(es), ¿crees que lloverá o que hará sol?",
+  "study-im-trial-prompt": "Haz clic sobre el botón inferior que corresponda a tu respuesta:",
+  "study-im-trial-counter": "Prueba:",
+
+  "study-im-break1": "¡Buen trabajo hasta ahora! Haz un descanso antes de continuar con el siguiente grupo de pruebas.",
+  "study-im-break2-title": "¡Uf! ¡Ya has acabado!",
+  "study-im-break2-continue": "Si te apetece, puedes seguir realizando pruebas haciendo clic sobre la flecha recta. Te avisaremos cuando empieces a realizar predicciones correctas consistentemente.",
+  "study-im-break2-results": "De lo contrario, puedes ver tus resultados ahora haciendo clic sobre la flecha curvada. También tienes la opción de seguir haciendo pruebas después de ver tus resultados.",
+
+  "study-im-indefinite-stop": "Te avisaremos cuando empieces a realizar predicciones correctas consistentemente, pero puedes hacer clic sobre la flecha para continuar para parar ahora:",
+  "study-im-indefinite-done": "¡Bien! Parece que ya lo tienes. ¡Estás haciendo predicciones correctas consistentemente!",
+  "study-im-indefinite-stats-pre": "Has completado ",
+  "study-im-indefinite-stats-mid": " pruebas adicionales durante esta fase del experimento, con una precisión general durante esta fase de ",
+  "study-im-indefinite-continue": "Haga clic sobre la flecha de abajo para ver tus resultados completos.",
+
+  "study-im-results-header": "¡Buen trabajo, hombre del tiempo! Has conseguido ",
+  "study-im-results-header-end": " precisión en tus predicciones.",
+  "study-im-results-same": "Al final del experimento, la precisión de tus predicciones fue <b>casi la misma</b> que la del participante promedio de nuestros registros.",
+  "study-im-results-higher": "Al final del experimento, la precisión de tus predicciones fue <b>superior a</b> la del participante promedio de nuestros registros.",
+  "study-im-results-much-higher": "Al final del experimento, la precisión de tus predicciones fue <b>muy superior a</b> la del participante promedio de nuestros registros.",
+  "study-im-results-lower": "Al final del experimento, la precisión de tus predicciones fue <b>inferior a</b> la del participante promedio de nuestros registros.",
+  "study-im-results-explain-p1": "¿Qué significa esto? Este test es una forma de medir tu <b>memoria implícita</b>. Utilizamos nuestra memoria implícita para absorber información a través de un proceso denominado aprendizaje procedimental, que está basado en la acumulación de experiencias con el paso del tiempo. Los humanos realizamos aprendizaje procedimental cuando realizamos asociaciones de forma inconsciente entre determinadas señales y resultados.",
+  "study-im-results-explain-p2": "Podemos aprender muchas cosas de manera implícita, incluyendo la capacidad para distinguir entre categorías en base a observaciones repetidas. Por ejemplo, podemos aprender a reconocer correos basura de forma implícita en base a una serie de frases sospechosas, o en base a nuestra familiaridad con la persona que envía un correo. Con el tiempo, podemos desarrollar un presentimiento de que determinados correos electrónicos son spam.",
+  "study-im-results-explain-p3": "El experimento sobre predicción meteorológica mide este tipo de aprendizaje. Si tu capacidad para aprender de forma implícita es fuerte, podrías ser un experto en sacarle sentido a las situaciones desconocidas.",
+  "study-im-results-share": "¡Mostrar resultados!",
+  "study-im-results-retry": "¿Crees que puedes mejorar tu precisión? Haz clic sobre la flecha para intentarlo. El hecho de completar más pruebas no cambiará los resultados que te mostramos en esta página, pero sí te diremos cuántas pruebas más debes completar hasta que empieces a hacer predicciones correctas consistentemente.",
+  "study-im-results-compare-title": "¿Quieres comparar tus resultados con los de los demás? Sigue leyendo...",
+  "study-im-results-compare-intro": "En este experimento, te pedimos que predijeras el tiempo a partir de símbolos abstractos. ¡No era fácil! Veamos cómo han ido mejorando tus predicciones durante el transcurso del experimento, en comparación con el participante promedio de nuestros registros:",
+
+  "study-im-chart-not-accurate": "Nada preciso",
+  "study-im-chart-very-accurate": "Muy preciso",
+  "study-im-chart-your-start": "Tu precisión inicial",
+  "study-im-chart-your-end": "Tu precisión final",
+  "study-im-chart-avg-start": "Precisión inicial promedio",
+  "study-im-chart-avg-end": "Precisión final promedio",
+  "study-im-chart-x-axis": "Número de ensayo",
+  "study-im-chart-y-axis": "Porcentaje correcto",
+  "study-im-chart-legend": "Leyenda",
+  "study-im-chart-deep-dive": "¿Quieres <em>profundizar</em> aún más?",
+  "study-im-chart-block-explain": "La mayoría de las personas mejorar en la tarea de predicción meteorológica durante el transcurso del experimento. La línea azul del siguiente gráfico indica tu mejora, desglosada en bloques de $1 pruebas.",
+  "study-im-chart-y-explain": "El eje Y del gráfico indica en porcentaje de pruebas a las que respondiste correctamente en un bloque determinado.",
+  "study-im-chart-example": "Por ejemplo, respondiste al $1% de pruebas correctamente entre las pruebas $2 y $3.",
+  "study-im-chart-legend-hover": "Coloca el cursor sobre la leyenda para ver la comparación de tu rendimiento con el rendimiento promedio para grupos diferentes.",
+
+  "study-im-stats-you": "Tú",
+  "study-im-stats-all": "Todos los participantes",
+  "study-im-stats-men": "Hombres",
+  "study-im-stats-women": "Mujeres",
+
+  "study-im-reference": "La tarea de predicción meteorológica fue presentada en: Knowlton, Barbara J., Larry R. Squire, and Mark A. Gluck. \"Probabilistic classification learning in amnesia.\" Learning & Memory 1.2 (1994): 106-120."
+}

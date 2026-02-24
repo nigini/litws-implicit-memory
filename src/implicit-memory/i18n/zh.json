@@ -1,0 +1,78 @@
+{
+  "@metadata": {
+    "authors": ["LITW Team"],
+    "locale": "zh",
+    "message-documentation": "qqq"
+  },
+
+  "litw-template-title": "隐性记忆测试",
+  "litw-study-title": "隐性记忆测试",
+  "litw-study-subtitle": "您对某个事物是否有过\u201c直觉\u201d？可能就是因为您的隐性记忆发挥着作用。",
+  "litw-study-description-p1": "通过该实验，我们可以测试下您的隐性记忆！",
+  "litw-study-description-p2": "了解您学习模式的能力与世界各地的人相比如何。",
+  "litw-study-intro-button": "现在就参加吧！",
+
+  "study-im-instruct1-p1": "我们会向您展示不同形状的卡片，比如：",
+  "study-im-instruct2-p1": "每个人的卡片表示将要下雨的可能性。一些卡片表示要下雨的可能性较高，一些表示较低。下雨的可能性不随实验进度而发生改变。",
+  "study-im-instruct2-p2": "当卡片以组合的方式被展示时，基于单一卡片出现的可能性，下雨的整体可能性会因此改变。",
+  "study-im-instruct2-p3": "<b>在每次测试过程中，您的任务就是根据看到的卡片决定天气是否要下雨。</b>您要通过点击乌云的图标表示天会下雨，如果认为不会下雨，请点击太阳的图标。",
+  "study-im-instruct2-p4": "您可以使用左右箭头键来选择天气图标。",
+  "study-im-instruct3-p1": "刚开始的时候，您不知道哪个卡片组合代表雨天，哪个表示晴天，因此，您只能选择猜测。",
+  "study-im-instruct3-p2": "尽管如此，不必担心！对于猜测结果，您会立即得到反馈。如果您猜对了，会看到一个绿色的对勾，如果猜错了，就会是一个红色的X。",
+  "study-im-instruct3-p3": "随着不断地练习，您猜的准确率会越来越高。",
+  "study-im-instruct3-p4": "<b>我们来试一下吧!</b>",
+  "study-im-instruct4-p1": "干得漂亮！如果您猜错了，别担心。多加留意每次测试中出现的符号，这样就能为您提供最精准的猜想。",
+  "study-im-instruct4-p2": "您需要完成多组测试，每次测试的符号组合也不尽相同。测试结束后，您会看到你和他人的对比结果。",
+  "study-im-instruct4-p3": "准备好了吗？点击箭头以开始！",
+
+  "study-im-trial-question": "基于以上给出的卡片，您认为未来天气如何，是阴天还是晴天?",
+  "study-im-trial-prompt": "请单击下面与您的猜测对应的按键:",
+  "study-im-trial-counter": "实验：",
+
+  "study-im-break1": "目前为止，干得漂亮！在下一组测试开始之前，您可以放松休息一下。",
+  "study-im-break2-title": "哈！您的测试到此结束！",
+  "study-im-break2-continue": "如果您还不尽兴，可以点击直线箭头，继续进行测试。当您连续不断做出正确猜测的时候，我们会通知您并向您展示测试结果。",
+  "study-im-break2-results": "又或者，您可以点击曲线箭头，查看您的测试结果。在看到您的结果之后，您还有一次完成更多测试的机会。",
+
+  "study-im-indefinite-stop": "如果您能持续不断地猜测正确，我们就会告知您，但是您也可以随时点击箭头选择继续或是停止:",
+  "study-im-indefinite-done": "太好了!看起来您已经掌握了规律。结果显示，您现在已能持续做出正确的猜测！",
+  "study-im-indefinite-stats-pre": "您已完成附加的测试",
+  "study-im-indefinite-stats-mid": "经过不断测试，您在该阶段的整体精准度为",
+  "study-im-indefinite-continue": "点击下方箭头，显示您的全部结果。",
+
+  "study-im-results-header": "干得漂亮，您定是当之无愧的天气预报员！您斩获了",
+  "study-im-results-header-end": "预测精准度！",
+  "study-im-results-same": "该实验结束以后，您预测的精准度和我们平均参与者的平均值<b>基本一致</b>。",
+  "study-im-results-higher": "该实验结束以后，您预测的精准度比我们平均参与者的平均值<b>要高</b>！",
+  "study-im-results-much-higher": "该实验结束以后，您预测的精准度比我们平均参与者的平均值<b>高得多</b>！",
+  "study-im-results-lower": "该实验结束以后，您预测的精准度比我们其他平均参与者的平均值<b>要低</b>。",
+  "study-im-results-explain-p1": "这意味着什么呢？该实验是测试您 <b>隐性记忆</b>的一种方式。我们通过隐性记忆来吸收信息，该过程被称为“程序性学习”，是基于多次实验积累而形成的。人们在无意识状态下将所给出的线索和结果联系在一起时，就会进行程序性学习。",
+  "study-im-results-explain-p2": "我们能隐性地学习很多事物，包括根据重复观察而区分不同类别的能力。比如，您可能根据某些具体可疑的短语，或是对发件人的了解，隐性地学会识别垃圾邮件。长此以往，您可能会培养出一种直觉，某些邮件就是垃圾邮件。",
+  "study-im-results-explain-p3": "天气预报实验测试的便是这样的学习能力。如果您有强大的隐性学习能力，对于了解未知状况，您可能会很擅长。",
+  "study-im-results-share": "分享您的测试结果！",
+  "study-im-results-retry": "您认为可以提高准确率？点击箭头进行尝试。进行更多测试不会改变我们在该页面展示给您的结果，但是直到您能对所做猜测结果做出不间断地精准尝试后，我们就会告知您所做尝试的次数是多少。",
+  "study-im-results-compare-title": "想要了解与其他参与者相比，您的结果如何？请继续读下去。。。",
+  "study-im-results-compare-intro": "在该试验中，我们请您根据抽象符号预测天气，这相当不容易！我们来看一看与参与者平均数据相比，您在实验的过程中，预测的精准度有多少提升：",
+
+  "study-im-chart-not-accurate": "不精准",
+  "study-im-chart-very-accurate": "十分精准",
+  "study-im-chart-your-start": "您开始时的精准度",
+  "study-im-chart-your-end": "您结束时的精准度",
+  "study-im-chart-avg-start": "开始时精准度平均值",
+  "study-im-chart-avg-end": "结束时精准度平均值",
+  "study-im-chart-x-axis": "实验编号",
+  "study-im-chart-y-axis": "正确百分比",
+  "study-im-chart-legend": "图例",
+  "study-im-chart-deep-dive": "想得到更多相关信息吗?",
+  "study-im-chart-block-explain": "大多数的人们在测试过程中，随着不断练习，预测天气的精准度也会随之提高。下图中的蓝线代表您的精准度改善值，分解成实验块状$1。",
+  "study-im-chart-y-explain": "图表中纵坐标轴相当于在特定测试内，您猜对正确答案的百分比。",
+  "study-im-chart-example": "比如说，您介于实验 $2 以及 $3猜测实验 $1%的答案精准。",
+  "study-im-chart-legend-hover": "鼠标停留在图例分类上，检验和不同群体的平均数相比，您的表现如何。",
+
+  "study-im-stats-you": "您自己",
+  "study-im-stats-all": "所有参与者",
+  "study-im-stats-men": "男人",
+  "study-im-stats-women": "女人",
+
+  "study-im-reference": "天气预报测试由 Knowlton, Barbara J., Larry R. Squire, and Mark A. Gluck. \"Probabilistic classification learning in amnesia.\" Learning & Memory 1.2 (1994): 106-120 引进。"
+}

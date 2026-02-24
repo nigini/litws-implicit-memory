@@ -1,0 +1,84 @@
+{
+    "@metadata": {
+        "authors": [
+            "LITW Team"
+        ],
+        "locale": "ja",
+        "message-documentation": "qqq"
+    },
+
+    "litw-template-title": "潜在記憶テスト",
+    "litw-template-loading": "Loading...",
+
+    "litw-study-title": "潜在記憶テスト",
+    "litw-study-subtitle": "何かに \"直感\"を感じたことはありますか？潜在記憶が働いているかも知れませんよ。",
+    "litw-study-description-p1": "この実験で、あなたの潜在記憶を見せてください！",
+    "litw-study-description-p2": "Find out how your ability to learn patterns compares to others around the world.",
+    "litw-study-intro-button": "さあ、参加しましょう！",
+
+    "litw-progress-bar-label": "Study Completion",
+
+    "study-im-instruct1-p1": "これから、次のような形が描かれたカードを見せられます:",
+    "study-im-instruct2-p1": "それぞれのカードは、ある降水確率を表しています。あるカードは高い降水確率を、また別のカードは低い降水確率を表しています。実験中は、これらの降水確率は変わりません。",
+    "study-im-instruct2-p2": "カードが組み合わせて表示されている場合は、個々のカードの降水確率に基づいて、全体の降水確率が変わります。",
+    "study-im-instruct2-p3": "<b>試験ごとに、示されたカードに基づいて天気が雨かどうかを判断するのがあなたの仕事です。</b> 天気が雨だと思う時は雲のアイコンをクリックし、雨ではないと思う時は太陽のアイコンをクリックしていただきます。",
+    "study-im-instruct2-p4": "左または右向きの矢印キーを使ってお天気アイコンを選択することもできます。",
+    "study-im-instruct3-p1": "最初は、どのカードの組み合わせが雨を、また晴れを示しているかが分からないので、推測する必要があります。",
+    "study-im-instruct3-p2": "でも、ご心配なく！推測の結果について、すぐにフィードバックが与えられます。推測が正しい時には緑のチェック・マーク、また誤りの時には赤のXが表示されます。",
+    "study-im-instruct3-p3": "次第に、あなたの推測の確率が向上します。",
+    "study-im-instruct3-p4": "<b>やってみましょう！</b>",
+    "study-im-instruct4-p1": "よくできました！誤りが何回かあっても、心配しないでください。試験ごとに表示されるマークをよく見て、最も当てはまると思われるものを選び続けてください。",
+    "study-im-instruct4-p2": "別の記号セットでもういくつか試験をやっていただきます。実験が終了すると、あなたの結果が他の人とどう違うかが分かります。",
+    "study-im-instruct4-p3": "準備はいいですか？矢印をクリックして始めてください！",
+
+    "study-im-trial-question": "上のカードに基くと、天気は雨だと思いますか、それとも晴れだと思いますか？",
+    "study-im-trial-prompt": "下のボタンのうち、あなたの推測に当てはまるものをクリックしてください:",
+    "study-im-trial-counter": "テスト回数:",
+
+    "study-im-break1": "ここまではうまく行っています！次の試験セットに進む前に、ご自由に休憩をおとり下さい。",
+    "study-im-break2-title": "はい！これですべて終わりました！",
+    "study-im-break2-continue": "気が乗ったら、直線の矢印をクリックして、さらに試験をやっていただくこともできます。一定して正しい推測ができているときはお知らせし、その後結果をお知らせします。",
+    "study-im-break2-results": "また、今すぐに結果を見たい場合は、曲がった矢印をクリックしてください。結果を見た後、さらに試験を最後まで続けていただくことができます。",
+
+    "study-im-indefinite-stop": "続けて正解を当てている場合にはお知らせしますが、矢印をクリックして今すぐ終了することができます:",
+    "study-im-indefinite-done": "そのとおり！どうやら理解できたようです。常に正しい予想を立てています！",
+    "study-im-indefinite-stats-pre": "あなたは、さらに",
+    "study-im-indefinite-stats-mid": "のテストをこの実験フェーズで達成されました。このフェーズにおける全体の確度は",
+    "study-im-indefinite-continue": "下の矢印をクリックして、全体の結果に進みましょう。",
+
+    "study-im-results-header": "いい調子です、お天気予報士さん！",
+    "study-im-results-header-end": "予測精度に達しました！",
+    "study-im-results-same": "実験の終了時のあなたの予測精度は、私たちのデータにある平均的な参加者と <b>だいたい同じ</b> でした。",
+    "study-im-results-higher": "実験の終了時のあなたの予測精度は、私たちのデータにある平均的な参加者に比べて <b>高め</b> でした。",
+    "study-im-results-much-higher": "実験の終了時のあなたの予測精度は、私たちのデータにある平均的な参加者に比べて <b>かなり高め</b> でした！",
+    "study-im-results-lower": "実験の終了時のあなたの予測精度は、私たちのデータにある平均的な参加者に比べて <b>低め</b> でした。",
+    "study-im-results-explain-p1": "それはどういう意味を持っているのでしょうか？このテストはあなたの <b>潜在記憶</b> を測る方法の１つです。私たちは、手続き学習と呼ばれるプロセスを通じて情報を吸収するために潜在記憶を使います。これは時間をかけて積まれた経験に基づくものです。人は特定のきっかけと結果との間に無意識の内に関連付けを行う時、手続き学習を行います。",
+    "study-im-results-explain-p2": "繰り返し観察することにより、カテゴリを区別する能力を含め、私たちは多くのものごとを潜在的に学ぶことができます。例えば、特定の疑わしいフレーズや、Eメールの送信者に見覚えがあるかどうかに基いて、ジャンク・メールを潜在的に認識する方法を学んでいるでしょう。時間をかけて、あなたは特定のEメールがスパムであるという直感を育てることができるでしょう。",
+    "study-im-results-explain-p3": "天気予測の実験では、このようなタイプの学習を測定します。あなたの潜在学習能力が高ければ、不慣れな状況を理解する能力があるかもしれません。",
+    "study-im-results-share": "結果を保存しましょう！",
+    "study-im-results-retry": "あなたの確度を上げられそうですか？",
+    "study-im-results-compare-title": "あなたの結果が他の人たちと比べてどうなのか、知りたいですか？続けてお読み下さい...",
+    "study-im-results-compare-intro": "この実験で、抽象的な記号から天気を予測していただきました。簡単ではなかったでしょう！実験を進める間に、私たちのデータにある平均的な参加者と比べて、あなたの予測がどのくらい上がったかを見てみましょう:",
+
+    "study-im-chart-not-accurate": "不正確",
+    "study-im-chart-very-accurate": "たいへん正確",
+    "study-im-chart-your-start": "あなたの開始時の確度",
+    "study-im-chart-your-end": "あなたの終了時の確度",
+    "study-im-chart-avg-start": "平均的な開始時の確度",
+    "study-im-chart-avg-end": "平均的な終了時の確度",
+    "study-im-chart-legend": "凡例",
+    "study-im-chart-x-axis": "Trial number",
+    "study-im-chart-y-axis": "Percentage correct",
+    "study-im-chart-deep-dive": "もっと <em>より深い</em> ところまで試したいですか？",
+    "study-im-chart-block-explain": "実験を進める間に、ほとんどの人は天気予測のタスクが良く出来るようになります。下のグラフの青い線は、あなたの改善度を $1 テスト回数のブロックごとに分けて示しています。",
+    "study-im-chart-y-explain": "グラフのY軸は、そのブロックで正解したテスト回数のパーセンテージに相当します。",
+    "study-im-chart-example": "つまり、例えば、あなたは $2 と $3 の間のテストで $1% の確率で正解されました。",
+    "study-im-chart-legend-hover": "凡例のカテゴリの上にマウスを置いて、あなたの実績を別のグループでの平均実績と比べてどうなのか、検証してみましょう。",
+
+    "study-im-stats-you": "あなた",
+    "study-im-stats-all": "全参加者",
+    "study-im-stats-men": "男性",
+    "study-im-stats-women": "女性",
+
+    "study-im-reference": "天気予測のタスクは以下に紹介されていました: Knowlton, Barbara J., Larry R. Squire, and Mark A. Gluck. \"Probabilistic classification learning in amnesia.\" Learning & Memory 1.2 (1994): 106-120。"
+}

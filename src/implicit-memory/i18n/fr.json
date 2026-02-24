@@ -1,0 +1,80 @@
+{
+  "@metadata": {
+    "authors": [
+      "LITW Team"
+    ],
+    "locale": "fr",
+    "message-documentation": "qqq"
+  },
+
+  "litw-template-title": "Teste de Mémoire Implicite",
+  "litw-study-title": "Teste de Mémoire Implicite",
+  "litw-study-subtitle": "Avez-vous déjà eu un pressentiment sur quelque chose? C'était peut-être votre mémoire implicite. Mettez votre mémoire implicite à l'épreuve dans cette expérience! Cette expérience dure environ 8 minutes.",
+  "litw-study-description-p1": "Mettez votre mémoire implicite à l'épreuve dans cette expérience!",
+  "litw-study-description-p2": "Découvrez comment votre capacité à apprendre des modèles se compare à d'autres personnes dans le monde.",
+  "litw-study-intro-button": "Participez maintenant!",
+
+  "study-im-instruct1-p1": "Vous allez être exposé à des cartes avec des formes géométriques, comme celles-ci:",
+  "study-im-instruct2-p1": "Chaque carte individuelle représente une certaine probabilité de pluie. Certaines cartes représentent une probabilité de pluie élevé et d'autres représente une probabilité faible. Ces probabilités ne changent pas au cours de l'expérience.",
+  "study-im-instruct2-p2": "Lorsque les cartes sont montrées en association ensemble, la probabilité de pluie générale change, basé sur les probabilités des cartes individuelles.",
+  "study-im-instruct2-p3": "<b>Durant chaque essais, votre tache consiste à décider si la météo sera pluvieuse ou pas, en vous basant sur les cartes que vous voyez.</b> Vous ferez cela en cliquant sur l'icône d'un nuage si vous pensez que la météo sera pluvieuse, et sur un icône d'un soleil si vous pensez que la météo ne sera pas pluvieuse.",
+  "study-im-instruct2-p4": "Vous pouvez également utiliser les flèches gauche et droite sur votre clavier pour sélectionner les icônes de météo.",
+  "study-im-instruct3-p1": "Au début, vous ne saurez pas quelles associations de cartes indiquent pluie et lesquelles indiquent soleil, donc vous aller devoir deviner.",
+  "study-im-instruct3-p2": "Ne vous inquiétez pas! Vous recevrez un retour d'information immédiat sur votre supposition. Vous recevrez un cochet vert si votre supposition est correcte et un X rouge si vous êtes dans le incorrect.",
+  "study-im-instruct3-p3": "Au fil du temps, vos suppositions vont s'améliorer.",
+  "study-im-instruct3-p4": "<b>Essayons!</b>",
+  "study-im-instruct4-p1": "Bon travail! Si vous avez eu des réponses incorrectes, ne vous inquiétez pas. Prêtez attention aux symboles qui apparaissent sur chaque essais et continuer de fournir vos meilleures suppositions.",
+  "study-im-instruct4-p2": "Vous allez compléter plusieurs autres essais avec des symboles différents. À la fin de l'expérience vous allez voir vos résultats comparé aux autres.",
+  "study-im-instruct4-p3": "Prêt? Cliquez sur la flèche pour commencer!",
+
+  "study-im-trial-question": "En vous basant sur les cartes ci-dessus, pensez-vous que la météo sera pluvieuse ou ensoleillé?",
+  "study-im-trial-prompt": "Cliquez sur le bouton ci-dessous qui correspond à votre supposition:",
+  "study-im-trial-counter": "Essais:",
+
+  "study-im-break1": "Bon travail jusqu'à maintenant! Faites-vous une pause avant de débuter la prochaine série d'essais.",
+  "study-im-break2-title": "Whew! Vous avez terminé!",
+  "study-im-break2-continue": "Si vous vous sentez prêt, vous pouvez compléter plus d'essais en cliquant sur la flèche. Nous vous laisserons savoir lorsque vous ferez des suppositions correctes de manière consistante et ensuite nous vous montrerons vos résultats.",
+  "study-im-break2-results": "Sinon, vous pouvez voir vos résultats maintenant en cliquant sur la flèche incurvée. Vous aurez la chance de faire plus d'essais après avoir vu vos résultats.",
+
+  "study-im-indefinite-stop": "Nous vous laisserons savoir lorsque vous ferez des suppositions correctes de manière consécutive, mais vous pouvez cliquez sur la flèche pour continuer d'arrêter maintenant:",
+  "study-im-indefinite-done": "Super! Il semble que vous comprenez. Vous faites des suppositions correctes de manière consécutive!",
+  "study-im-indefinite-stats-pre": "Vous avez complété un additionnel ",
+  "study-im-indefinite-stats-mid": " essais essais durant cette phase de l'expérience, avec une exactitude générale durant cette phase de ",
+  "study-im-indefinite-continue": "Cliquez sur la flèche ci-dessous pour continuer à vos résultats complets.",
+
+  "study-im-results-header": "Bon travail, météorologiste! Vous avez atteint ",
+  "study-im-results-header-end": " d'exactitude prévisionniste!",
+  "study-im-results-same": "À la fin de l'expérience, votre précision de prédiction était <b>environ la même</b> que la moyenne des participants dans nos données.",
+  "study-im-results-higher": "À la fin de l'expérience, votre précision de prédiction était <b>plus haute que</b> la moyenne des participants dans nos données.",
+  "study-im-results-much-higher": "À la fin de l'expérience, votre précision de prédiction était <b>beaucoup plus haute que</b> la moyenne des participants dans nos données.",
+  "study-im-results-lower": "À la fin de l'expérience, votre précision de prédiction était <b>plus basse que</b> la moyenne des participants dans nos données.",
+  "study-im-results-explain-p1": "Que cela signifie-t-il? Ce test est une mesure de la <b>mémoire implicite</b>. Nous utilisons notre mémoire implicite pour absorber l'information par un processus appelé l'apprentissage procédural, qui repose sur l'accumulation d'expériences au fil du temps. L'homme effectue apprentissage procédural lorsqu'il fait des associations inconsciemment entre certaines indications et résultats.",
+  "study-im-results-explain-p2": "Nous pouvons apprendre beaucoup de choses implicitement, y compris la possibilité d'établir une distinction entre les catégories basées sur des observations répétées. Par exemple, vous pourriez apprendre à reconnaître, de façon implicite, du pourriel en vous basant sur certaines phrases suspectes, ou sur votre connaissance de l'expéditeur d'un e-mail. Au fil du temps, vous pourriez développer une intuition à propos de certains e-mails, qui sont réellement du pourriel.",
+  "study-im-results-explain-p3": "L'expérience de prévision météo mesure ce type d'apprentissage. Si votre capacité à apprendre implicitement est forte, vous pourriez être apte à donner du sens aux situations inhabituelles.",
+  "study-im-results-share": "Partagez vos résultats!",
+  "study-im-results-retry": "Pensez que vous pouvez améliorer votre précision? Cliquez sur la flèche pour essayer. Compléter d'autres essais ne changera pas les résultats que nous vous montrons sur cette page, mais nous vous laisserons savoir combien d'essais supplémentaires vous complétez jusqu'à ce que vous faites des suppositions corrects de manière consistante.",
+  "study-im-results-compare-title": "Vous voulez savoir comment vos résultats se comparent à ceux des autres? Continuer de lire...",
+  "study-im-results-compare-intro": "Dans cette expérience, nous vous avons demander de prédire la météo à partir de symboles abstraits. Ça n'a pas été facile! Voyons comment vos prédictions se sont améliorés au cours de l'expérience, en comparaison avec une participant moyen dans nos données.",
+
+  "study-im-chart-not-accurate": "Pas très exacte",
+  "study-im-chart-very-accurate": "Très exacte",
+  "study-im-chart-your-start": "Votre exactitude débutante",
+  "study-im-chart-your-end": "Votre exactitude de fin",
+  "study-im-chart-avg-start": "Exactitude moyenne au début",
+  "study-im-chart-avg-end": "Exactitude moyenne à la fin",
+  "study-im-chart-x-axis": "Numéro de l'essai",
+  "study-im-chart-y-axis": "Pourcentage correct",
+  "study-im-chart-legend": "Légende",
+  "study-im-chart-deep-dive": "Voulez-vous prendre un plongeon encore plus <em>profond</em> ?",
+  "study-im-chart-block-explain": "La plupart des gens s'améliorent à la tâche de prévision météo au cours de l'expérience. La ligne bleue sur le graphique ci-dessous montre votre amélioration, décomposée en blocs de $1 essais.",
+  "study-im-chart-y-explain": "L'axe y du graphique correspond au pourcentage d'essais auquel vous avez répondu correctement dans un bloc donné.",
+  "study-im-chart-example": "Donc, par exemple, vous avez répondu $1% d'essais correctes entre essais $2 et $3.",
+  "study-im-chart-legend-hover": "Passer votre curseur au-dessus des catégories dans la légende afin d'examiner comment votre performance se compare à la performance moyenne de groupes différents.",
+
+  "study-im-stats-you": "Vous",
+  "study-im-stats-all": "Tous les participants",
+  "study-im-stats-men": "Homme",
+  "study-im-stats-women": "Femme",
+
+  "study-im-reference": "La tache de prédiction météorologique a été introduite dans: Knowlton, Barbara J., Larry R. Squire, and Mark A. Gluck. \"Probabilistic classification learning in amnesia.\" Learning & Memory 1.2 (1994): 106-120."
+}

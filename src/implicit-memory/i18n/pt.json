@@ -1,0 +1,78 @@
+{
+  "@metadata": {
+    "authors": ["LITW Team"],
+    "locale": "pt",
+    "message-documentation": "qqq"
+  },
+
+  "litw-template-title": "Teste de Memória Implícita",
+  "litw-study-title": "Teste de Memória Implícita",
+  "litw-study-subtitle": "Já teve um 'pressentimento' sobre algo? A sua memória implícita pode ter estado a trabalhar.",
+  "litw-study-description-p1": "Coloque a sua memória implícita à prova neste experimento!",
+  "litw-study-description-p2": "Descubra como a sua capacidade de aprender padrões se compara à de outras pessoas em todo o mundo.",
+  "litw-study-intro-button": "Comece agora!",
+
+  "study-im-instruct1-p1": "Será-lhes mostrado cartões com formas neles, como estes:",
+  "study-im-instruct2-p1": "Cada cartão individual representa uma certa chance de chover. Alguns cartões representam uma alta chance de chovar, e alguns representam uma baixa chance. Estas chances não mudam durante o experimento.",
+  "study-im-instruct2-p2": "Quando os cartões são mostrados em combinação, a chance geral de chuva muda, com base nas chances dos cartões individuais.",
+  "study-im-instruct2-p3": "<b>Em cada teste, seu trabalho é decidir se o tempo estará chuvoso ou não, com base nos cartões que verá.</b> Fará isso clicando em um ícone de um nuvem se achar que tempo estará chuvoso, e um ícone de um sol se achar que o tempo não estará chuvoso.",
+  "study-im-instruct2-p4": "Pode também usar as setas para direita e esquerda para selecionar os ícones do tempo.",
+  "study-im-instruct3-p1": "Primeiro, não saberá qual combinação de cartão indica chuva e qual indica sol, portanto, terá que adivinhar.",
+  "study-im-instruct3-p2": "No entanto, não se preocupe! Receberá feedback imediatamente sobre seu palpite. Verá uma checagem verde se seu  palpite estiver correto, e um X vermelho se estiver errado.",
+  "study-im-instruct3-p3": "Com o tempo, seus palpites melhorarão.",
+  "study-im-instruct3-p4": "<b>Vamos tentar!<b>",
+  "study-im-instruct4-p1": "Bom trabalho! Se entendeu algo errado, não se preocupe. Preste atenção aos símbolos que aparecem em cada teste, e continue dando seu melhor palpite.",
+  "study-im-instruct4-p2": "Você completará vários outros testes com um conjunto diferente de símbolos. No final do experimento verá como seus resultados comparam-se com os outros.",
+  "study-im-instruct4-p3": "Pronto? Clique na seta para começar!",
+
+  "study-im-trial-question": "Com base no(s) cartão(ões) acima, acha que o tempo estará chuvoso ou ensolarado?",
+  "study-im-trial-prompt": "Clique no botão abaixo que corresponda ao seu palpite:",
+  "study-im-trial-counter": "Teste:",
+
+  "study-im-break1": "Bom trabalho até agora! Sinta-se livre para descansar antes do próximo conjunto de testes.",
+  "study-im-break2-title": "Ufa! Está indo bem!",
+  "study-im-break2-continue": "Se estiver sentindo-se pronto, pode completar mais testes clicando na seta reta. Avisaremos quando tiver dando palpites corretos consistentemente, e depois mostramos lhe seus resultados.",
+  "study-im-break2-results": "Caso contrário, pode ver seus resultados agora clicando na seta curvada. Terá a chance de completar mais testes depois de ver seus resultados.",
+
+  "study-im-indefinite-stop": "Mostraremos lhe quando estiver fazendo consistentemente palpites corretos, mas pode clicar na seta para continuar a parar agora:",
+  "study-im-indefinite-done": "Legal! Parece que você conseguiu. Está consistentemente fazendo previsões corretas!",
+  "study-im-indefinite-stats-pre": "Completou um teste adicional",
+  "study-im-indefinite-stats-mid": "durante esta fase do experimento, com uma precisão geral durante esta fase de",
+  "study-im-indefinite-continue": "Clique na seta abaixo para continuar com seus resultados completos.",
+
+  "study-im-results-header": "Bom trabalho, meteorologista! Você conseguiu",
+  "study-im-results-header-end": "precisão na previsão!",
+  "study-im-results-same": "No final do experimento, sua precisão de previsão foi <b>a mesma<b> que o participante mediano em nossos dados.",
+  "study-im-results-higher": "No final do experimento, sua precisão de previsão foi <b>maior que<b> o participante mediano em nossos dados!",
+  "study-im-results-much-higher": "No final do experimento, sua precisão de previsão foi <b>muito maior<b> que o participante mediano em nossos dados!",
+  "study-im-results-lower": "No final do experimento, sua precisão de previsão foi <b>menor<b> que o participante mediano em nossos dados.",
+  "study-im-results-explain-p1": "O que isso signitica? Este teste é uma medição de sua <b>memória implícita<b>. Usamos nossa memória implícita para absorver informações em um processo chamado de aprendizagem processual, que baseia-se no acúmulo de experiências com o tempo. Os humanos realizam a aprendizagem processual quando inconscientemente fazem associações entre certos palpites e resultados.",
+  "study-im-results-explain-p2": "Pode aprender muitas coisas implicitamente, incluindo a habilidade de distinguir entre categorias com base em observações repetidas. Por exemplo, deve aprender a reconhecer implicitamente e-mails lixo com base em certas frases suspeitas, ou com base em sua familiaridade com o remetente de um e-mail. Com o tempo, deve desenvolver um pressentimento de que certos e-mails são spam.",
+  "study-im-results-explain-p3": "O experimento da previsão de tempo mede este tipo de aprendizagem. Se sua habilidade de aprendizagem implícita for forte, pode ser hábil em fazer sentido em situações não familiares.",
+  "study-im-results-share": "Compartilhe seus resultados!",
+  "study-im-results-retry": "Pensa que pode melhorar sua precisão? Clique na seta para tentar. Completar mais testes não mudará os resultados que mostramos lhes nesta página, mas avisaremos quantos testes adicionais você completou até realizar palpites corretos consistentemente.",
+  "study-im-results-compare-title": "Quer saber como seus resultados comparam-se aos dos outros? Leia...",
+  "study-im-results-compare-intro": "Neste experimento, pedimos que previste o tempo a partir de símbolos abstratos. Não foi fácil! Vejamos como suas previsões melhoraram ao longo do experimento em comparação com o participante mediano em nossos dados:",
+
+  "study-im-chart-not-accurate": "Não preciso",
+  "study-im-chart-very-accurate": "Muito preciso",
+  "study-im-chart-your-start": "Sua precisão no início",
+  "study-im-chart-your-end": "Sua precisão no final",
+  "study-im-chart-avg-start": "Média de previsão no início",
+  "study-im-chart-avg-end": "Média de previsão no final",
+  "study-im-chart-legend": "Legenda",
+  "study-im-chart-x-axis": "Número do teste",
+  "study-im-chart-y-axis": "Percentagem correta",
+  "study-im-chart-deep-dive": "Quer mergulhar mais <em>fundo<em>?",
+  "study-im-chart-block-explain": "A maioria das pessoas melhoram na tarefa da previsão do tempo ao longo do experimento. A linha azul no gráfico abaixo mostra sua melhora, quebrada em blocos de $1 testes.",
+  "study-im-chart-y-explain": "O eixo y no gráfico corresponde a porcentagem de testes que respondeu corretamente em um dado bloco.",
+  "study-im-chart-example": "Portanto, por exemplo, respondeu $1% dos testes corretamente entre os testes $2 e $3.",
+  "study-im-chart-legend-hover": "Passeie pelas categorias na legenda para examinar como seu desempenho compara-se ao desempenho médio para grupos diferentes.",
+
+  "study-im-stats-you": "Você",
+  "study-im-stats-all": "Todos os participantes",
+  "study-im-stats-men": "Homens",
+  "study-im-stats-women": "Mulheres",
+
+  "study-im-reference": "A tarefa de previsão do tempo foi introduzida em: Knowlton, Barbara J., Larry R. Squire, and Mark A. Gluck. \"Probabilistic classification learning in amnesia.\" Learning & Memory 1.2 (1994): 106-120."
+}
