@@ -74,7 +74,7 @@ module.exports = (function(exports) {
 			'ru': './i18n/ru.json?v=1.0',
 			'zh': './i18n/zh.json?v=1.0',
 		},
-		study_id: "TO_BE_ADDED_IF_USING_LITW_INFRA",
+		study_id: "068b8a99-3bbb-4c19-8c93-bde08b62db0d",
 		study_recommendation: [],
 		preLoad: ["../img/btn-next.png","../img/btn-next-active.png","../img/ajax-loader.gif"],
 		slides: {
