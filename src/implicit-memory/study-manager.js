@@ -298,13 +298,15 @@ module.exports = (function(exports) {
 		$(results_div).html(resultsTemplate({ data: results }));
 
 		if(showFooter) {
-			document.getElementById("results-footer").innerHTML =
-				resultsFooterTemplate({
-					share_url: window.location.href,
-					share_title: $.i18n('litw-irb-header'),
-					share_text: $.i18n('litw-template-title'),
-					more_litw_studies: config.study_recommendation
-				});
+			let recom_studies = [];
+			LITW.engage.getStudiesRecommendation(config.study_id,
+				(studies) => { recom_studies = studies });
+			$("#results-footer").html(resultsFooterTemplate({
+				share_url: window.location.href,
+				share_title: $.i18n('litw-irb-header'),
+				share_text: $.i18n('litw-template-title'),
+				more_litw_studies: recom_studies
+			}));
 		}
 		$(results_div).i18n();
 		LITW.utils.showSlide("results");
