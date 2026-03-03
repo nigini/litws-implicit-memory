@@ -1,0 +1,272 @@
+<div class="row">
+    <div id="local_data_id" data-local_id="{{ local_data_id }}"></div>
+    <div class="col-12">
+        <div id="title" class="h3 bolded-blue text-center">
+            <span data-i18n="litw-demographics-title"></span>
+            <a class="bi bi-question-circle" style="cursor: pointer" onclick="show_data_info()"></a>
+        </div>
+        <div id="data_info_alert" class="alert alert-warning alert-dismissible hidden" role="alert">
+            <span data-i18n="litw-demographics-title-tip"></span>
+            <button type="button" class="btn-close" onclick="hide_data_info()"></button>
+        </div>
+        <p class="text-center" id="requiredMessage" data-i18n="litw-demographics-required"></p>
+    </div>
+</div>
+
+<form id="demographicsForm" novalidate style="text-align: left">
+
+    <!-- Have you taken this test before? -->
+    <div class="mb-3">
+        <label class="form-label" data-i18n="litw-demographics-retake"></label>
+        <span class="text-danger">*</span>
+        <select class="form-select" name="demographics-retake" required>
+            <option value="">--</option>
+            <option value="no" data-i18n="litw-demographics-no"></option>
+            <option value="yes" data-i18n="litw-demographics-yes"></option>
+        </select>
+    </div>
+
+    <!-- Country grew up in (populated dynamically) -->
+    <div class="mb-3">
+        <label class="form-label" data-i18n="litw-demographics-country-grow"></label>
+        <span class="text-danger">*</span>
+        <select class="form-select" name="demographics-country-grow" id="dem-country-grow" required>
+            <option value="">--</option>
+        </select>
+    </div>
+
+    <!-- Country currently living in (populated dynamically) -->
+    <div class="mb-3">
+        <label class="form-label" data-i18n="litw-demographics-country-live"></label>
+        <span class="text-danger">*</span>
+        <select class="form-select" name="demographics-country-live" id="dem-country-live" required>
+            <option value="">--</option>
+        </select>
+    </div>
+
+    <!-- Age -->
+    <div class="mb-3">
+        <label class="form-label" data-i18n="litw-demographics-age"></label>
+        <span class="text-danger">*</span>
+        <input type="number" class="form-control" name="demographics-age" min="5" max="120"
+               style="width: 200px" required>
+    </div>
+
+    <!-- Native language (populated dynamically) -->
+    <div class="mb-3">
+        <label class="form-label" data-i18n="litw-demographics-language-native"></label>
+        <span class="text-danger">*</span>
+        <select class="form-select" name="demographics-language-native" id="dem-language" required>
+            <option value="">--</option>
+        </select>
+    </div>
+
+    <!-- Religion (populated dynamically) -->
+    <div class="mb-3">
+        <label class="form-label" data-i18n="litw-demographics-religion"></label>
+        <span class="text-danger">*</span>
+        <select class="form-select" name="demographics-religion" id="dem-religion" required>
+            <option value="">--</option>
+        </select>
+    </div>
+
+    <!-- Gender -->
+    <div class="mb-3">
+        <label class="form-label" data-i18n="litw-demographics-gender"></label>
+        <span class="text-danger">*</span>
+        <select class="form-select" name="demographics-gender" id="dem-gender" required>
+            <option value="">--</option>
+            <option value="female" data-i18n="litw-demographics-female"></option>
+            <option value="male" data-i18n="litw-demographics-male"></option>
+            <option value="non-binary" data-i18n="litw-demographics-nonbinary"></option>
+            <option value="no-disclosure" data-i18n="litw-demographics-nodisclose"></option>
+            <option value="other" data-i18n="litw-demographics-other"></option>
+        </select>
+    </div>
+
+    <!-- Gender other (conditional: shown when gender=other) -->
+    <div class="mb-3" id="dem-gender-other-group" style="display:none">
+        <label class="form-label" data-i18n="litw-demographics-gender-other"></label>
+        <input type="text" class="form-control" name="demographics-gender-other" style="width: 200px">
+    </div>
+
+    <!-- Education -->
+    <div class="mb-3">
+        <label class="form-label" data-i18n="litw-demographics-education"></label>
+        <span class="text-danger">*</span>
+        <select class="form-select" name="demographics-education" required>
+            <option value="">--</option>
+            <option value="no-formal-edu" data-i18n="litw-demographics-education1"></option>
+            <option value="incomplete-primary" data-i18n="litw-demographics-education2"></option>
+            <option value="complete-primary" data-i18n="litw-demographics-education3"></option>
+            <option value="incomplete-sec-high" data-i18n="litw-demographics-education4"></option>
+            <option value="complete-sec-high" data-i18n="litw-demographics-education5"></option>
+            <option value="university-no-degree" data-i18n="litw-demographics-education6"></option>
+            <option value="university-degree" data-i18n="litw-demographics-education7"></option>
+            <option value="incomplete-grad" data-i18n="litw-demographics-education8"></option>
+            <option value="complete-grad" data-i18n="litw-demographics-education9"></option>
+        </select>
+    </div>
+
+    <!-- Race (conditional: shown when country-grow = United States) -->
+    <div class="mb-3" id="dem-race-group" style="display:none">
+        <label class="form-label" data-i18n="litw-demographics-race"></label>
+        <div id="dem-race-checkboxes">
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="demographics-race" value="native" id="race-native">
+                <label class="form-check-label" for="race-native" data-i18n="litw-demographics-race-native"></label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="demographics-race" value="asian" id="race-asian">
+                <label class="form-check-label" for="race-asian" data-i18n="litw-demographics-race-asian"></label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="demographics-race" value="black" id="race-black">
+                <label class="form-check-label" for="race-black" data-i18n="litw-demographics-race-black"></label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="demographics-race" value="latino" id="race-latino">
+                <label class="form-check-label" for="race-latino" data-i18n="litw-demographics-race-latino"></label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="demographics-race" value="islander" id="race-islander">
+                <label class="form-check-label" for="race-islander" data-i18n="litw-demographics-race-islander"></label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="demographics-race" value="white" id="race-white">
+                <label class="form-check-label" for="race-white" data-i18n="litw-demographics-race-white"></label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="demographics-race" value="no-disclosure" id="race-nodisclose">
+                <label class="form-check-label" for="race-nodisclose" data-i18n="litw-demographics-nodisclose"></label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="demographics-race" value="other" id="race-other">
+                <label class="form-check-label" for="race-other" data-i18n="litw-demographics-other"></label>
+            </div>
+        </div>
+    </div>
+
+    <!-- Race other (conditional: shown when "other" race is checked) -->
+    <div class="mb-3" id="dem-race-other-group" style="display:none">
+        <label class="form-label" data-i18n="litw-demographics-race-other"></label>
+        <input type="text" class="form-control" name="demographics-race-other" style="width: 200px">
+    </div>
+
+</form>
+
+<script type="text/javascript">
+    let show_data_info = function(){
+        $('#data_info_alert').show();
+    }
+    let hide_data_info = function(){
+        $('#data_info_alert').hide();
+    }
+
+    function populateSelect(selectId, dataObj) {
+        let select = document.getElementById(selectId);
+        Object.entries(dataObj).forEach(([key, label]) => {
+            let opt = document.createElement('option');
+            opt.value = key;
+            opt.textContent = label;
+            select.appendChild(opt);
+        });
+    }
+
+    function setupConditionalFields() {
+        // Gender "other" text field
+        $('#dem-gender').on('change', function() {
+            $('#dem-gender-other-group').toggle(this.value === 'other');
+        });
+
+        // Race group shown only when country = United States
+        $('#dem-country-grow').on('change', function() {
+            $('#dem-race-group').toggle(this.value === 'United States');
+            if (this.value !== 'United States') {
+                $('#dem-race-checkboxes input').prop('checked', false);
+                $('#dem-race-other-group').hide();
+            }
+        });
+
+        // Race "other" text field
+        $('#dem-race-checkboxes').on('change', 'input', function() {
+            let otherChecked = $('#race-other').is(':checked');
+            $('#dem-race-other-group').toggle(otherChecked);
+        });
+    }
+
+    function setupValidation() {
+        let form = document.getElementById('demographicsForm');
+        $('#btn-next-page').hide();
+
+        $(form).on('change input', function() {
+            if (form.checkValidity()) {
+                $('#btn-next-page').show();
+                $('#btn-next-page')[0].scrollIntoView();
+            } else {
+                $('#btn-next-page').hide();
+            }
+        });
+    }
+
+    function restoreLocalData() {
+        const LOCAL_KEY = document.getElementById('local_data_id').dataset.local_id;
+        let localData = LITW.data.loadFromLocal(LOCAL_KEY);
+        if (!localData) return;
+
+        let form = document.getElementById('demographicsForm');
+        Object.entries(localData).forEach(([key, value]) => {
+            let field = form.elements[key];
+            if (!field) return;
+
+            if (field.type === 'checkbox' || field.length) {
+                // Handle checkbox groups (race)
+                let values = Array.isArray(value) ? value : [value];
+                let checkboxes = form.querySelectorAll(`input[name="${key}"]`);
+                checkboxes.forEach(cb => { cb.checked = values.includes(cb.value); });
+            } else {
+                field.value = value;
+            }
+        });
+
+        // Trigger change events to update conditional fields
+        $('#dem-gender').trigger('change');
+        $('#dem-country-grow').trigger('change');
+        $('#dem-race-checkboxes input').first().trigger('change');
+    }
+
+    function getFormData() {
+        let data = {};
+        let form = document.getElementById('demographicsForm');
+        new FormData(form).forEach((value, key) => {
+            if (key in data) {
+                if (!Array.isArray(data[key])) data[key] = [data[key]];
+                data[key].push(value);
+            } else {
+                data[key] = value;
+            }
+        });
+        return data;
+    }
+
+    $(document).ready(function() {
+        $.getJSON('../templates/i18n/countries-en.json', function(countries) {
+            populateSelect('dem-country-grow', countries);
+            populateSelect('dem-country-live', countries);
+        }).then(function() {
+            return $.getJSON('../templates/i18n/lang-en.json', function(languages) {
+                populateSelect('dem-language', languages);
+            });
+        }).then(function() {
+            return $.getJSON('../templates/i18n/religions-en.json', function(religions) {
+                populateSelect('dem-religion', religions);
+            });
+        }).then(function() {
+            setupConditionalFields();
+            setupValidation();
+            restoreLocalData();
+            // Apply i18n to dynamically created elements
+            $('#demographicsForm').i18n();
+        });
+    });
+</script>
