@@ -30,7 +30,7 @@ Handlebars.registerPartial('prog', Handlebars.compile(progressHTML));
 import introHTML from "../templates/introduction.html";
 import irb_LITW_HTML from "../templates/irb2-litw.html";
 import demographicsHTML from "../templates/demographics.html";
-import resultsHTML from "../templates/results.html";
+import resultsHTML from "./templates/study-results.html";
 import resultsFooterHTML from "../templates/results-footer.html";
 import commentsHTML from "../templates/comments.html";
 import instructions1HTML from "./templates/instructions1.html";
@@ -61,6 +61,7 @@ module.exports = (function(exports) {
 		LONG: 15,
 	};
 	let timeline = [];
+	let all_trial_data = { practice: [], trials_1: [], trials_2: [] };
 	let config = {
 		languages: {
 			'default': 'en',
@@ -149,7 +150,8 @@ module.exports = (function(exports) {
 				template_data: { value: 45, phase: "practice", trialCount: 5 },
 				display_next_button: false,
 				finish: function(){
-					LITW.data.submitStudyData({practice: window.LITW_TRIAL_RESULTS || []});
+					all_trial_data.practice = window.LITW_TRIAL_RESULTS || [];
+					LITW.data.submitStudyData({practice: all_trial_data.practice});
 				}
 			},
 			TRIALS_1: {
@@ -160,7 +162,8 @@ module.exports = (function(exports) {
 				template_data: { value: 65, phase: "trial", trialCount: 20 },
 				display_next_button: false,
 				finish: function(){
-					LITW.data.submitStudyData({trials_1: window.LITW_TRIAL_RESULTS || []});
+					all_trial_data.trials_1 = window.LITW_TRIAL_RESULTS || [];
+					LITW.data.submitStudyData({trials_1: all_trial_data.trials_1});
 				}
 			},
 			BREAK: {
@@ -179,7 +182,8 @@ module.exports = (function(exports) {
 				template_data: { value: 80, phase: "trial", trialCount: 60 },
 				display_next_button: false,
 				finish: function(){
-					LITW.data.submitStudyData({trials_2: window.LITW_TRIAL_RESULTS || []});
+					all_trial_data.trials_2 = window.LITW_TRIAL_RESULTS || [];
+					LITW.data.submitStudyData({trials_2: all_trial_data.trials_2});
 				}
 			},
 			COMMENTS: {
@@ -225,33 +229,84 @@ module.exports = (function(exports) {
 		return timeline;
 	}
 
+	function generateDummyTrials(count, startAccuracy, endAccuracy) {
+		let trials = [];
+		for (let i = 0; i < count; i++) {
+			let progress = i / count;
+			let accuracy = startAccuracy + (endAccuracy - startAccuracy) * progress;
+			trials.push({ correct: Math.random() < accuracy ? 1 : 0 });
+		}
+		return trials;
+	}
+
 	function calculateResults() {
-		//TODO: Calculate actual study results
-		let results_data = {}
-		showResults(results_data, true)
+		// TODO: Remove dummy data once real trials are in the timeline
+		if (all_trial_data.trials_1.length === 0) {
+			all_trial_data.trials_1 = generateDummyTrials(20, 0.45, 0.55);
+			all_trial_data.trials_2 = generateDummyTrials(60, 0.55, 0.75);
+		}
+
+		let allTrials = [...all_trial_data.trials_1, ...all_trial_data.trials_2];
+		let blockSize = 20;
+		let blockData = [];
+		for (let i = 0; i < allTrials.length; i += blockSize) {
+			let block = allTrials.slice(i, i + blockSize);
+			let correct = block.filter(t => t.correct === 1).length;
+			blockData.push({
+				blockNum: blockData.length + 1,
+				percentCorrect: correct / block.length
+			});
+		}
+
+		let userStart = blockData.length > 0 ? blockData[0].percentCorrect : 0;
+		let userEnd = blockData.length > 0 ? blockData[blockData.length - 1].percentCorrect : 0;
+
+		// Dummy average data (to be replaced with real aggregate data later)
+		let avgData = [
+			{ blockNum: 1, percentCorrect: 0.50 },
+			{ blockNum: 2, percentCorrect: 0.55 },
+			{ blockNum: 3, percentCorrect: 0.58 },
+			{ blockNum: 4, percentCorrect: 0.62 },
+		];
+		let avgStart = avgData[0].percentCorrect;
+		let avgEnd = avgData[avgData.length - 1].percentCorrect;
+
+		let diff = userEnd - avgEnd;
+		let comparisonKey;
+		if (diff > -0.05 && diff < 0.05) comparisonKey = 'study-im-results-same';
+		else if (diff >= 0.05 && diff < 0.3) comparisonKey = 'study-im-results-higher';
+		else if (diff >= 0.3) comparisonKey = 'study-im-results-much-higher';
+		else comparisonKey = 'study-im-results-lower';
+
+		let results_data = {
+			accuracy: (userEnd * 100).toFixed(1) + '%',
+			comparisonText: $.i18n(comparisonKey),
+			userStart: userStart,
+			userEnd: userEnd,
+			avgStart: avgStart,
+			avgEnd: avgEnd,
+		};
+		showResults(results_data, true);
 	}
 
 	function showResults(results = {}, showFooter = false) {
-		let results_div = $("#results");
 		if('PID' in LITW.data.getURLparams) {
 			results.code = LITW.data.getParticipantId();
 		}
 
-		results_div.html(
-			resultsTemplate({
-				data: results
-			}));
+		let results_div = document.getElementById("results");
+		$(results_div).html(resultsTemplate({ data: results }));
+
 		if(showFooter) {
-			$("#results-footer").html(resultsFooterTemplate(
-				{
+			document.getElementById("results-footer").innerHTML =
+				resultsFooterTemplate({
 					share_url: window.location.href,
 					share_title: $.i18n('litw-irb-header'),
 					share_text: $.i18n('litw-template-title'),
 					more_litw_studies: config.study_recommendation
-				}
-			));
+				});
 		}
-		results_div.i18n();
+		$(results_div).i18n();
 		LITW.utils.showSlide("results");
 	}
 

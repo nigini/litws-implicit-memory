@@ -1,0 +1,153 @@
+<h3 class="bolded-blue text-center" style="text-align: center">
+    <span data-i18n="study-im-results-header"></span>
+    <b>{{ data.accuracy }}</b>
+    <span data-i18n="study-im-results-header-end"></span>
+</h3>
+
+{{#if data.code}}
+<h5 class="text-center">
+    <span data-i18n="litw-results-code"></span>
+    <span>{{ data.code }}</span>
+</h5>
+{{/if}}
+
+<div class="accordion pb-4" id="resultsAccordion">
+    <!-- Section 1: Your Results -->
+    <div class="accordion-item">
+        <h2 class="accordion-header">
+            <button class="accordion-button" type="button"
+                data-bs-toggle="collapse" data-bs-target="#resultsDetail"
+                aria-expanded="true" data-i18n="litw-results-detail-title">
+            </button>
+        </h2>
+        <div id="resultsDetail" class="accordion-collapse collapse show">
+            <div class="accordion-body pb-4">
+                <p class="text-center py-2">{{{ data.comparisonText }}}</p>
+                <canvas id="accuracy-scale" width="600" height="160"
+                    data-user-start="{{ data.userStart }}"
+                    data-user-end="{{ data.userEnd }}"
+                    data-avg-start="{{ data.avgStart }}"
+                    data-avg-end="{{ data.avgEnd }}"
+                    style="display:block; margin:0 auto;"></canvas>
+            </div>
+        </div>
+    </div>
+    <!-- Section 2: What does it mean? -->
+    <div class="accordion-item">
+        <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button"
+                data-bs-toggle="collapse" data-bs-target="#resultsExplain"
+                aria-expanded="false" data-i18n="litw-results-explain-title">
+            </button>
+        </h2>
+        <div id="resultsExplain" class="accordion-collapse collapse">
+            <div class="accordion-body p-4">
+                <p data-i18n="[html]study-im-results-explain-p1"></p>
+                <p data-i18n="[html]study-im-results-explain-p2"></p>
+                <p data-i18n="[html]study-im-results-explain-p3"></p>
+            </div>
+        </div>
+    </div>
+    <!-- Section 3: References -->
+    <div class="accordion-item">
+        <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button"
+                data-bs-toggle="collapse" data-bs-target="#resultsRefs"
+                aria-expanded="false" data-i18n="litw-results-ref-title">
+            </button>
+        </h2>
+        <div id="resultsRefs" class="accordion-collapse collapse">
+            <div class="accordion-body p-4">
+                <p data-i18n="study-im-reference"></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="results-footer"></div>
+
+<script type="text/javascript">
+    function drawAccuracyScale() {
+        var canvas = document.getElementById('accuracy-scale');
+        if (!canvas || !canvas.getContext) return;
+
+        var userStart = parseFloat(canvas.dataset.userStart);
+        var userEnd = parseFloat(canvas.dataset.userEnd);
+        var avgStart = parseFloat(canvas.dataset.avgStart);
+        var avgEnd = parseFloat(canvas.dataset.avgEnd);
+
+        var ctx = canvas.getContext('2d');
+        var w = canvas.width;
+        var h = canvas.height;
+        var lineLeft = 100;
+        var lineRight = w - 100;
+        var lineY = h / 2;
+        var lineLen = lineRight - lineLeft;
+
+        function xPos(pct) { return lineLeft + pct * lineLen; }
+
+        // Background
+        ctx.fillStyle = '#fff';
+        ctx.fillRect(0, 0, w, h);
+
+        // Scale line
+        ctx.strokeStyle = '#888';
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.moveTo(lineLeft, lineY);
+        ctx.lineTo(lineRight, lineY);
+        ctx.stroke();
+
+        // Tick marks at 0%, 25%, 50%, 75%, 100%
+        ctx.fillStyle = '#888';
+        ctx.font = '11px sans-serif';
+        ctx.textAlign = 'center';
+        for (var t = 0; t <= 4; t++) {
+            var pct = t * 0.25;
+            var tx = xPos(pct);
+            ctx.beginPath();
+            ctx.moveTo(tx, lineY - 4);
+            ctx.lineTo(tx, lineY + 4);
+            ctx.stroke();
+            ctx.fillText(Math.round(pct * 100) + '%', tx, lineY + 18);
+        }
+
+        // Labels
+        ctx.font = 'bold 12px sans-serif';
+        ctx.textAlign = 'right';
+        ctx.fillStyle = '#555';
+        ctx.fillText($.i18n('study-im-chart-not-accurate'), lineLeft - 10, lineY + 5);
+        ctx.textAlign = 'left';
+        ctx.fillText($.i18n('study-im-chart-very-accurate'), lineRight + 10, lineY + 5);
+
+        function drawTriangle(x, above, color, label, far) {
+            var dir = above ? -1 : 1;
+            var tipY = lineY + dir * 2;
+            var baseY = tipY + dir * 16;
+            var labelOffset = far ? 28 : 14;
+            ctx.beginPath();
+            ctx.moveTo(x - 8, baseY);
+            ctx.lineTo(x + 8, baseY);
+            ctx.lineTo(x, tipY);
+            ctx.fillStyle = color;
+            ctx.fill();
+            ctx.font = '11px sans-serif';
+            ctx.textAlign = 'center';
+            ctx.fillText(label, x, baseY + dir * labelOffset);
+        }
+
+        // Average markers (above line, gray)
+        drawTriangle(xPos(avgStart), true, '#999',
+            $.i18n('study-im-chart-avg-start'), false);
+        drawTriangle(xPos(avgEnd), true, '#555',
+            $.i18n('study-im-chart-avg-end'), true);
+
+        // User markers (below line, blue)
+        drawTriangle(xPos(userStart), false, '#6699dd',
+            $.i18n('study-im-chart-your-start'), false);
+        drawTriangle(xPos(userEnd), false, '#0044aa',
+            $.i18n('study-im-chart-your-end'), true);
+    }
+
+    drawAccuracyScale();
+</script>
