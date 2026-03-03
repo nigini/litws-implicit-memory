@@ -1,0 +1,171 @@
+{{> prog}}
+
+<div id="trial-container" data-phase="{{ phase }}" data-count="{{ trialCount }}">
+    <!-- Trial counter -->
+    <p id="trial-header" class="text-center">
+        <span data-i18n="study-im-trial-counter"></span>
+        <b><span id="trial-current"></span>/<span id="trial-total"></span></b>
+    </p>
+
+    <!-- Card display area -->
+    <div id="trial-cards" class="text-center my-3"></div>
+
+    <!-- Question and response buttons -->
+    <p class="text-center" data-i18n="study-im-trial-question"></p>
+    <p class="text-center" data-i18n="study-im-trial-prompt"></p>
+    <div id="trial-responses" class="text-center my-3">
+        <img src="img/rain.svg" id="resp-rain" class="resp-button mx-3" width="100" height="100" alt="rain">
+        <img src="img/sun.svg" id="resp-sun" class="resp-button mx-3" width="100" height="100" alt="sun">
+    </div>
+</div>
+
+<script type="text/javascript">
+    // [[pattern card indices], P(pattern), P(rain|pattern)]
+    var PROBABILITIES = [
+        [[2], 0.08, 0.375],
+        [[0,1], 0.09, 0.889],
+        [[1,2,3], 0.04, 0.25],
+        [[1], 0.08, 0.625],
+        [[1,3], 0.06, 0.167],
+        [[1,2], 0.06, 0.5],
+        [[3], 0.14, 0.143],
+        [[0], 0.14, 0.857],
+        [[0,3], 0.06, 0.5],
+        [[0,2], 0.06, 0.833],
+        [[0,2,3], 0.03, 0.333],
+        [[2,3], 0.09, 0.111],
+        [[0,1,3], 0.03, 0.667],
+        [[0,1,2], 0.04, 0.75],
+    ];
+
+    function shuffle(arr) {
+        var a = arr.slice();
+        for (var i = a.length - 1; i > 0; i--) {
+            var j = Math.floor(Math.random() * (i + 1));
+            var tmp = a[i];
+            a[i] = a[j];
+            a[j] = tmp;
+        }
+        return a;
+    }
+
+    // Shuffled once per session, persisted on window
+    if (!window.LITW_STIM_ORDER) {
+        window.LITW_STIM_ORDER = shuffle(["stim1", "stim2", "stim3", "stim4"]);
+    }
+
+    function generateTrials(phase, count) {
+        var trials = [];
+        for (var p = 0; p < PROBABILITIES.length; p++) {
+            var num = Math.max(1, Math.round(PROBABILITIES[p][1] * count));
+            for (var k = 0; k < num; k++) {
+                var trial = [PROBABILITIES[p][2]];
+                for (var c = 0; c < PROBABILITIES[p][0].length; c++) {
+                    var name = window.LITW_STIM_ORDER[PROBABILITIES[p][0][c]];
+                    trial.push(name + (phase === "practice" ? "alt" : ""));
+                }
+                trials.push(trial);
+            }
+        }
+        if (count < trials.length) {
+            trials = trials.slice(0, count);
+        }
+        return shuffle(trials);
+    }
+
+    function runTrials(phase, trialCount) {
+        var trials = generateTrials(phase, trialCount);
+        var trialIndex = 0;
+        var results = [];
+
+        var elCurrent = document.getElementById('trial-current');
+        var elTotal = document.getElementById('trial-total');
+        var elCards = document.getElementById('trial-cards');
+        var elRain = document.getElementById('resp-rain');
+        var elSun = document.getElementById('resp-sun');
+
+        elTotal.textContent = trials.length;
+
+        function handleResponse(response) {
+            elRain.removeEventListener('click', onRainClick);
+            elSun.removeEventListener('click', onSunClick);
+            document.removeEventListener('keydown', onKeyDown);
+            elRain.style.cursor = 'default';
+            elSun.style.cursor = 'default';
+
+            var trial = trials[trialIndex];
+            var pRain = trial[0];
+            var stims = trial.slice(1);
+            var weatherThisTrial = Math.random() < pRain ? "rain" : "sun";
+            var correctWeather = pRain === 0.5 ? "neither" : (pRain > 0.5 ? "rain" : "sun");
+            var feedbackCorrect = (response === weatherThisTrial);
+
+            elRain.style.opacity = '0.3';
+            elSun.style.opacity = '0.3';
+
+            var chosen = response === "rain" ? elRain : elSun;
+            chosen.style.opacity = '1';
+            chosen.src = feedbackCorrect ? 'img/greenCheck.svg' : 'img/redX.svg';
+
+            results.push({
+                trialNum: trialIndex + 1,
+                pattern: stims.join(','),
+                pRain: pRain,
+                weatherThisTrial: weatherThisTrial,
+                correctWeather: correctWeather,
+                response: response,
+                correct: (response === correctWeather) ? 1 : 0,
+            });
+
+            setTimeout(function() {
+                trialIndex++;
+                showTrial();
+            }, 1000);
+        }
+
+        function onRainClick() { handleResponse('rain'); }
+        function onSunClick() { handleResponse('sun'); }
+        function onKeyDown(e) {
+            if (e.key === 'ArrowLeft') handleResponse('rain');
+            else if (e.key === 'ArrowRight') handleResponse('sun');
+        }
+
+        function showTrial() {
+            if (trialIndex >= trials.length) {
+                document.onkeydown = null;
+                // Store current phase results for the study-manager to collect
+                window.LITW_TRIAL_RESULTS = results;
+                // Auto-advance
+                document.getElementById('btn-next-page').click();
+                return;
+            }
+
+            var trial = trials[trialIndex];
+            var stims = trial.slice(1);
+
+            elCurrent.textContent = trialIndex + 1;
+
+            elCards.innerHTML = stims.map(function(s) {
+                return '<img src="img/' + s + '.svg" class="stim mx-2" width="80" height="80">';
+            }).join('');
+
+            elRain.src = 'img/rain.svg';
+            elSun.src = 'img/sun.svg';
+            elRain.style.opacity = '1';
+            elSun.style.opacity = '1';
+            elRain.style.cursor = 'pointer';
+            elSun.style.cursor = 'pointer';
+
+            elRain.addEventListener('click', onRainClick);
+            elSun.addEventListener('click', onSunClick);
+            document.addEventListener('keydown', onKeyDown);
+        }
+
+        showTrial();
+    }
+
+    var container = document.getElementById('trial-container');
+    var phase = container.dataset.phase;
+    var count = parseInt(container.dataset.count, 10);
+    runTrials(phase, count);
+</script>

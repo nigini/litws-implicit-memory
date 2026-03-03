@@ -37,6 +37,8 @@ import instructions1HTML from "./templates/instructions1.html";
 import instructions2HTML from "./templates/instructions2.html";
 import instructions3HTML from "./templates/instructions3.html";
 import instructions4HTML from "./templates/instructions4.html";
+import trialHTML from "./templates/trial.html";
+import breakHTML from "./templates/break.html";
 
 //CONVERT HTML INTO TEMPLATES
 const introTemplate = Handlebars.compile(introHTML);
@@ -46,6 +48,8 @@ const instructions1Template = Handlebars.compile(instructions1HTML);
 const instructions2Template = Handlebars.compile(instructions2HTML);
 const instructions3Template = Handlebars.compile(instructions3HTML);
 const instructions4Template = Handlebars.compile(instructions4HTML);
+const trialTemplate = Handlebars.compile(trialHTML);
+const breakTemplate = Handlebars.compile(breakHTML);
 const resultsTemplate = Handlebars.compile(resultsHTML);
 const resultsFooterTemplate = Handlebars.compile(resultsFooterHTML);
 const commentsTemplate = Handlebars.compile(commentsHTML);
@@ -137,6 +141,47 @@ module.exports = (function(exports) {
 				template_data: { value: 60 },
 				display_next_button: true,
 			},
+			PRACTICE: {
+				name: "practice",
+				type: LITW.engine.SLIDE_TYPE.SHOW_SLIDE,
+				display_element_id: "practice",
+				template: trialTemplate,
+				template_data: { value: 45, phase: "practice", trialCount: 5 },
+				display_next_button: false,
+				finish: function(){
+					LITW.data.submitStudyData({practice: window.LITW_TRIAL_RESULTS || []});
+				}
+			},
+			TRIALS_1: {
+				name: "trials_1",
+				type: LITW.engine.SLIDE_TYPE.SHOW_SLIDE,
+				display_element_id: "trial",
+				template: trialTemplate,
+				template_data: { value: 65, phase: "trial", trialCount: 20 },
+				display_next_button: false,
+				finish: function(){
+					LITW.data.submitStudyData({trials_1: window.LITW_TRIAL_RESULTS || []});
+				}
+			},
+			BREAK: {
+				name: "break",
+				type: LITW.engine.SLIDE_TYPE.SHOW_SLIDE,
+				display_element_id: "break",
+				template: breakTemplate,
+				template_data: { value: 75 },
+				display_next_button: true,
+			},
+			TRIALS_2: {
+				name: "trials_2",
+				type: LITW.engine.SLIDE_TYPE.SHOW_SLIDE,
+				display_element_id: "trial",
+				template: trialTemplate,
+				template_data: { value: 80, phase: "trial", trialCount: 60 },
+				display_next_button: false,
+				finish: function(){
+					LITW.data.submitStudyData({trials_2: window.LITW_TRIAL_RESULTS || []});
+				}
+			},
 			COMMENTS: {
 				name: "comments",
 				type: LITW.engine.SLIDE_TYPE.SHOW_SLIDE,
@@ -170,9 +215,11 @@ module.exports = (function(exports) {
 		timeline.push(config.slides.INSTRUCTIONS_1);
 		timeline.push(config.slides.INSTRUCTIONS_2);
 		timeline.push(config.slides.INSTRUCTIONS_3);
-		//TODO: Add practice trials
+		timeline.push(config.slides.PRACTICE);
 		timeline.push(config.slides.INSTRUCTIONS_4);
-		//TODO: Add trials and break slides
+		timeline.push(config.slides.TRIALS_1);
+		timeline.push(config.slides.BREAK);
+		timeline.push(config.slides.TRIALS_2);
 		timeline.push(config.slides.COMMENTS);
 		timeline.push(config.slides.RESULTS);
 		return timeline;
