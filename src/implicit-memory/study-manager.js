@@ -27,7 +27,7 @@ LITW.engine = litw_engine;
 //LOAD THE HTML FOR STUDY PAGES
 import progressHTML from "../templates/progress.html";
 Handlebars.registerPartial('prog', Handlebars.compile(progressHTML));
-import introHTML from "../templates/introduction.html";
+import introHTML from "./templates/introduction.html";
 import irb_LITW_HTML from "../templates/irb2-litw.html";
 import demographicsHTML from "../templates/demographics.html";
 import resultsHTML from "./templates/study-results.html";
