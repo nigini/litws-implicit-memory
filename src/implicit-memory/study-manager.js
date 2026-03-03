@@ -28,39 +28,46 @@ LITW.engine = litw_engine;
 import progressHTML from "../templates/progress.html";
 Handlebars.registerPartial('prog', Handlebars.compile(progressHTML));
 import introHTML from "../templates/introduction.html";
-import irbHTML from "../templates/irb.html";
 import irb_LITW_HTML from "../templates/irb2-litw.html";
-import questHTML from "../templates/questionnaire.html";
 import demographicsHTML from "../templates/demographics.html";
-import loadingHTML from "../templates/loading.html";
 import resultsHTML from "../templates/results.html";
 import resultsFooterHTML from "../templates/results-footer.html";
 import commentsHTML from "../templates/comments.html";
+import instructions1HTML from "./templates/instructions1.html";
+import instructions2HTML from "./templates/instructions2.html";
+import instructions3HTML from "./templates/instructions3.html";
+import instructions4HTML from "./templates/instructions4.html";
 
 //CONVERT HTML INTO TEMPLATES
-let introTemplate = Handlebars.compile(introHTML);
-let irbTemplate = Handlebars.compile(irbHTML);
-let irbLITWTemplate = Handlebars.compile(irb_LITW_HTML);
-let questTemplate = Handlebars.compile(questHTML);
-let demographicsTemplate = Handlebars.compile(demographicsHTML);
-let loadingTemplate = Handlebars.compile(loadingHTML);
-let resultsTemplate = Handlebars.compile(resultsHTML);
-let resultsFooterTemplate = Handlebars.compile(resultsFooterHTML);
-let commentsTemplate = Handlebars.compile(commentsHTML);
+const introTemplate = Handlebars.compile(introHTML);
+const irbLITWTemplate = Handlebars.compile(irb_LITW_HTML);
+const demographicsTemplate = Handlebars.compile(demographicsHTML);
+const instructions1Template = Handlebars.compile(instructions1HTML);
+const instructions2Template = Handlebars.compile(instructions2HTML);
+const instructions3Template = Handlebars.compile(instructions3HTML);
+const instructions4Template = Handlebars.compile(instructions4HTML);
+const resultsTemplate = Handlebars.compile(resultsHTML);
+const resultsFooterTemplate = Handlebars.compile(resultsFooterHTML);
+const commentsTemplate = Handlebars.compile(commentsHTML);
 
-//TODO: document "params.study_id" when updating the docs/7-ManageData!!!
 module.exports = (function(exports) {
-	const study_times= {
-			SHORT: 5,
-			MEDIUM: 10,
-			LONG: 15,
-		};
+	const study_times = {
+		SHORT: 5,
+		MEDIUM: 10,
+		LONG: 15,
+	};
 	let timeline = [];
 	let config = {
 		languages: {
 			'default': 'en',
 			'en': './i18n/en.json?v=1.0',
-			'pt': './i18n/pt-br.json?v=1.0',
+			'es': './i18n/es.json?v=1.0',
+			'pt': './i18n/pt.json?v=1.0',
+			'fr': './i18n/fr.json?v=1.0',
+			'de': './i18n/de.json?v=1.0',
+			'ja': './i18n/ja.json?v=1.0',
+			'ru': './i18n/ru.json?v=1.0',
+			'zh': './i18n/zh.json?v=1.0',
 		},
 		study_id: "TO_BE_ADDED_IF_USING_LITW_INFRA",
 		study_recommendation: [],
@@ -73,13 +80,6 @@ module.exports = (function(exports) {
 				template: introTemplate,
 				display_next_button: false,
 			},
-			INFORMED_CONSENT: {
-				name: "informed_consent",
-				type: LITW.engine.SLIDE_TYPE.SHOW_SLIDE,
-				display_element_id: "irb",
-				template: irbTemplate,
-				display_next_button: false,
-			},
 			INFORMED_CONSENT_LITW: {
 				name: "informed_consent",
 				type: LITW.engine.SLIDE_TYPE.SHOW_SLIDE,
@@ -88,20 +88,6 @@ module.exports = (function(exports) {
 				template_data: {
 					time: study_times.SHORT,
 				},
-				display_next_button: false,
-			},
-			QUESTIONNAIRE_1: {
-				name: "quest1",
-				type: LITW.engine.SLIDE_TYPE.SHOW_SLIDE,
-				display_element_id: "quest1",
-				template: questTemplate,
-				display_next_button: false,
-			},
-			QUESTIONNAIRE_2: {
-				name: "quest2",
-				type: LITW.engine.SLIDE_TYPE.SHOW_SLIDE,
-				display_element_id: "quest2",
-				template: questTemplate,
 				display_next_button: false,
 			},
 			DEMOGRAPHICS: {
@@ -118,6 +104,38 @@ module.exports = (function(exports) {
 					LITW.data.addToLocal(this.template_data.local_data_id, dem_data);
 					LITW.data.submitDemographics(dem_data);
 				}
+			},
+			INSTRUCTIONS_1: {
+				name: "instructions_1",
+				type: LITW.engine.SLIDE_TYPE.SHOW_SLIDE,
+				display_element_id: "instructions",
+				template: instructions1Template,
+				template_data: { value: 30 },
+				display_next_button: true,
+			},
+			INSTRUCTIONS_2: {
+				name: "instructions_2",
+				type: LITW.engine.SLIDE_TYPE.SHOW_SLIDE,
+				display_element_id: "instructions",
+				template: instructions2Template,
+				template_data: { value: 35 },
+				display_next_button: true,
+			},
+			INSTRUCTIONS_3: {
+				name: "instructions_3",
+				type: LITW.engine.SLIDE_TYPE.SHOW_SLIDE,
+				display_element_id: "instructions",
+				template: instructions3Template,
+				template_data: { value: 40 },
+				display_next_button: true,
+			},
+			INSTRUCTIONS_4: {
+				name: "instructions_4",
+				type: LITW.engine.SLIDE_TYPE.SHOW_SLIDE,
+				display_element_id: "instructions",
+				template: instructions4Template,
+				template_data: { value: 60 },
+				display_next_button: true,
 			},
 			COMMENTS: {
 				name: "comments",
@@ -149,86 +167,26 @@ module.exports = (function(exports) {
 		timeline.push(config.slides.INTRODUCTION);
 		timeline.push(config.slides.INFORMED_CONSENT_LITW);
 		timeline.push(config.slides.DEMOGRAPHICS);
-
-		// MUST BE a function because we don't have $.i18() available at configuration time! SHOULD WE?
-		config.slides.QUESTIONNAIRE_1.template_data = () => {
-			return getQuest1Data('quest1', 50)
-		};
-		timeline.push(config.slides.QUESTIONNAIRE_1);
-		config.slides.QUESTIONNAIRE_2.template_data = () => {
-			return getQuest2Data('quest2', './img/cat-computer.png', 100);
-		}
-		timeline.push(config.slides.QUESTIONNAIRE_2);
+		timeline.push(config.slides.INSTRUCTIONS_1);
+		timeline.push(config.slides.INSTRUCTIONS_2);
+		timeline.push(config.slides.INSTRUCTIONS_3);
+		//TODO: Add practice trials
+		timeline.push(config.slides.INSTRUCTIONS_4);
+		//TODO: Add trials and break slides
 		timeline.push(config.slides.COMMENTS);
 		timeline.push(config.slides.RESULTS);
 		return timeline;
 	}
 
-	function getQuest1Data(quest_id, completion) {
-		return {
-			title: $.i18n(`litw-study-${quest_id}-title`),
-			progress: {
-				value: completion
-			},
-			quest_id: quest_id,
-			done_button: $.i18n(`litw-study-${quest_id}-save`),
-			questions: [1, 2].map((x)=> {
-				return {
-					id: x,
-					text: $.i18n(`litw-study-${quest_id}-q${x}`)
-				}
-			}),
-			responses: [1, 2, 3, 4, 5].map((x)=> {
-				return {
-					id: x,
-					text: $.i18n(`litw-study-quest-a${x}`)
-				}
-			})
-		}
-	}
-
-	function getQuest2Data(quest_id, img_url, completion) {
-		return {
-			title: $.i18n(`litw-study-${quest_id}-title`),
-			img_prompt: {
-				url: img_url,
-				text_before: $.i18n(`litw-study-${quest_id}-prompt`),
-			},
-			progress: {
-				value: completion
-			},
-			quest_id: quest_id,
-			done_button: $.i18n(`litw-study-${quest_id}-save`),
-			questions: [1, 2].map((q)=> {
-				return {
-					id: q,
-					text: $.i18n(`litw-study-${quest_id}-q${q}`),
-				}
-				//ALERT: You can also add responses for each question.
-			}),
-			responses: [1, 2, 3, 4, 5].map((x)=> {
-				return {
-					id: x,
-					text: $.i18n(`litw-study-quest-a${x}`)
-				}
-			})
-		}
-	}
-
 	function calculateResults() {
-		//TODO: Nothing to calculate
+		//TODO: Calculate actual study results
 		let results_data = {}
 		showResults(results_data, true)
 	}
 
-	//TODO Should be better supported by the ENGINE to setup HTML and show "SLIDE"
 	function showResults(results = {}, showFooter = false) {
 		let results_div = $("#results");
-		let recom_studies = [];
-		LITW.engage.getStudiesRecommendation(config.study_id, (studies) => {recom_studies = studies});
-
 		if('PID' in LITW.data.getURLparams) {
-			//REASON: Default behavior for returning a unique PID when collecting data from other platforms
 			results.code = LITW.data.getParticipantId();
 		}
 
@@ -242,25 +200,13 @@ module.exports = (function(exports) {
 					share_url: window.location.href,
 					share_title: $.i18n('litw-irb-header'),
 					share_text: $.i18n('litw-template-title'),
-					more_litw_studies: recom_studies
+					more_litw_studies: config.study_recommendation
 				}
 			));
 		}
 		results_div.i18n();
-		//TODO Likely move to engine!
 		LITW.utils.showSlide("results");
 	}
-
-	//TODO Move to LITW.DATA library
-	function readSummaryData() {
-		$.getJSON( "summary.json", function( data ) {
-			//TODO: 'data' contains the produced summary form DB data
-			//      in case the study was loaded using 'index.php'
-			//SAMPLE: The example code gets the cities of study particpants.
-			console.log(data);
-		});
-	}
-
 
 	function bootstrap() {
 		let good_config = LITW.engine.configure_study(config.preLoad, config.languages,
@@ -269,11 +215,8 @@ module.exports = (function(exports) {
 			LITW.engine.start_study();
 		} else {
 			console.error("Study configuration error!");
-			//TODO fail nicely, maybe a page with useful info to send to the tech team?
 		}
 	}
-
-
 
 	// when the page is loaded, start the study!
 	$(document).ready(function() {
@@ -283,5 +226,3 @@ module.exports = (function(exports) {
 	exports.study.params = config
 
 })( window.LITW = window.LITW || {} );
-
-
